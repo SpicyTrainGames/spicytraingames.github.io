@@ -1,7 +1,11 @@
-/* General Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   margin: 0;
+  line-height: 1.6;
   padding: 0;
   background-color: #f4f4f4;
   color: #333;
@@ -19,7 +23,9 @@ header h1 {
 }
 
 main {
-  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
 }
 
 section {
