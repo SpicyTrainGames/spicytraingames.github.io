@@ -1,0 +1,273 @@
+/* ============================================================
+   shared.css — SpicyTrain Games
+   Common styles for index.html and presskit.html
+   ============================================================ */
+
+/* ── TOKENS ── */
+:root {
+  --candy-pink:   #FF4E8A;
+  --candy-yellow: #FFD93D;
+  --candy-mint:   #6FEFCB;
+  --candy-blue:   #4BC8F5;
+  --candy-purple: #C084FC;
+  --dark:         #1A0A2E;
+  --dark-card:    #251540;
+  --dark-card2:   #1E1035;
+  --text:         #F0E6FF;
+  --text-muted:   #A89FC0;
+}
+
+/* ── RESET ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* ── BASE ── */
+body {
+  background-color: var(--dark);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Ambient gradient overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(255,78,138,0.11) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 75%, rgba(75,200,245,0.09) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(192,132,252,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── FLOATING PARTICLES ── */
+.particle-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  opacity: 0.13;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
+  9%   { opacity: 0.13; }
+  91%  { opacity: 0.13; }
+  100% { transform: translateY(-10vh) rotate(400deg); opacity: 0; }
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  background: rgba(26,10,46,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nav-logo {
+  font-size: 1.15rem;
+  color: var(--candy-yellow);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.07);
+}
+
+.nav-links .nav-press {
+  background: rgba(255,78,138,0.12);
+  border: 1px solid rgba(255,78,138,0.3);
+  color: var(--candy-pink);
+  padding: 7px 18px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.nav-links .nav-press:hover {
+  background: rgba(255,78,138,0.22);
+  border-color: rgba(255,78,138,0.6);
+  transform: translateY(-1px);
+  color: var(--candy-pink);
+}
+
+/* ── HERO (shared base) ── */
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 90px 40px 70px;
+}
+
+.hero h1 {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* ── SECTION HEADINGS ── */
+/* index.html uses .section-header + .section-pip  */
+/* presskit.html uses .section-label + .dot        */
+/* Both are unified here under shared class names  */
+
+.section-header,
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-header h2,
+.section-label h2 {
+  font-size: 1.55rem;
+  letter-spacing: 0.01em;
+}
+
+/* Coloured pip dots — used by both pages */
+.section-pip,
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pip-pink,   .dot-pink   { background: var(--candy-pink);   box-shadow: 0 0 8px var(--candy-pink); }
+.pip-yellow, .dot-yellow { background: var(--candy-yellow); box-shadow: 0 0 8px var(--candy-yellow); }
+.pip-mint,   .dot-mint   { background: var(--candy-mint);   box-shadow: 0 0 8px var(--candy-mint); }
+.pip-blue,   .dot-blue   { background: var(--candy-blue);   box-shadow: 0 0 8px var(--candy-blue); }
+.pip-purple, .dot-purple { background: var(--candy-purple); box-shadow: 0 0 8px var(--candy-purple); }
+
+/* ── CARDS ── */
+.card {
+  background: var(--dark-card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.card-sm {
+  background: var(--dark-card2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+/* ── LINK CARDS (press kit links + social list) ── */
+.press-link,
+.social-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--dark-card2);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.press-link:hover,
+.social-list a:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+
+.link-icon,
+.social-icon { font-size: 1.15rem; }
+
+.link-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  display: block;
+}
+
+/* ── SECTION DIVIDER ── */
+.divider,
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+  margin-bottom: 56px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+footer a { color: var(--candy-mint); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  nav { padding: 14px 20px; }
+  .hero { padding: 70px 20px 50px; }
+}

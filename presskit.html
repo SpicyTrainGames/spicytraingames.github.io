@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugar Shatter — Press Kit | SpicyTrain Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+
+  <style>
+    /* ── PAGE-SPECIFIC: presskit.html ── */
+
+    /* Header (press kit uses a simpler header/back layout, not the full nav) */
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(26,10,46,0.8);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-logo {
+      font-family: 'Lilita One', cursive;
+      font-size: 1.1rem;
+      color: var(--candy-yellow);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .header-back {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .header-back:hover { color: var(--candy-mint); }
+
+    /* Hero */
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,78,138,0.15);
+      border: 1px solid rgba(255,78,138,0.4);
+      color: var(--candy-pink);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      animation: fadeInDown 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      animation: fadeInDown 0.6s ease 0.1s both;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-yellow) 50%, var(--candy-mint) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-top: 16px;
+      animation: fadeInDown 0.6s ease 0.2s both;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      animation: fadeInDown 0.6s ease 0.3s both;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    section { margin-bottom: 56px; }
+
+    @media (max-width: 700px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .container { padding: 0 20px 60px; }
+      header { padding: 16px 20px; }
+    }
+
+    /* Fact sheet */
+    .fact-sheet { display: grid; gap: 0; }
+
+    .fact-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .fact-row:last-child { border-bottom: none; }
+
+    .fact-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-top: 2px;
+    }
+
+    .fact-value { font-size: 0.95rem; color: var(--text); font-weight: 600; }
+    .fact-value a { color: var(--candy-mint); text-decoration: none; }
+    .fact-value a:hover { text-decoration: underline; }
+
+    /* Trailer */
+    .trailer-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .trailer-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+    /* Features */
+    .features { display: grid; gap: 12px; }
+
+    .feature-item { display: flex; gap: 14px; align-items: flex-start; }
+    .feature-icon { font-size: 1.3rem; line-height: 1.5; flex-shrink: 0; }
+    .feature-text strong { display: block; font-size: 0.95rem; color: var(--text); margin-bottom: 2px; }
+    .feature-text p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Screenshots */
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .screenshots-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .screenshot-slot {
+      aspect-ratio: 16/9;
+      background: var(--dark-card2);
+      border: 2px dashed rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      overflow: hidden;
+      position: relative;
+    }
+    .screenshot-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+    .screenshot-slot:hover { border-color: rgba(111,239,203,0.3); background: rgba(111,239,203,0.04); }
+    .screenshot-slot .plus { font-size: 1.8rem; opacity: 0.3; line-height: 1; }
+    .screenshot-slot span { opacity: 0.5; font-size: 0.7rem; }
+
+    /* Developer */
+    .dev-card { display: flex; gap: 24px; align-items: flex-start; }
+
+    @media (max-width: 500px) { .dev-card { flex-direction: column; } }
+
+    .dev-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lilita One', cursive;
+      font-size: 1.6rem;
+      color: white;
+    }
+
+    .dev-info h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .dev-info .dev-role { font-size: 0.8rem; color: var(--candy-mint); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+    .dev-info p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Links grid */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    /* Contact block */
+    .contact-block {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,78,138,0.08) 0%, rgba(192,132,252,0.08) 100%);
+      border: 1px solid rgba(255,78,138,0.15);
+      border-radius: 20px;
+      padding: 40px 32px;
+    }
+    .contact-block h2 { font-size: 1.8rem; margin-bottom: 10px; }
+    .contact-block p  { color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--candy-pink);
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(255,78,138,0.35);
+    }
+    .contact-email:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 217, 61, 0.1);
+      border: 1px solid rgba(255, 217, 61, 0.35);
+      color: var(--candy-yellow);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+
+    .download-btn:hover {
+      background: rgba(255, 217, 61, 0.18);
+      border-color: rgba(255, 217, 61, 0.65);
+      transform: translateY(-2px);
+    }
+
+    .download-note {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="particle-bg" id="candyBg"></div>
+
+  <header>
+    <a href="index.html" class="header-logo"><img src="logo.png" alt="SpicyTrain Games logo" height="36" style="vertical-align: middle;"></a>
+    <a href="index.html" class="header-back">← Back to site</a>
+  </header>
+
+  <div class="hero">
+    <h1><span>Sugar Shatter</span></h1>
+    <p class="hero-sub">A breakout fighting game — coming soon to PC</p>
+    <div class="hero-tags">
+      <span class="tag">2D Fighter</span>
+      <span class="tag">Arcade</span>
+      <span class="tag">Breakout</span>
+      <span class="tag">PvP</span>
+      <span class="tag">Singleplayer</span>
+      <span class="tag">Local Multiplayer</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <section>
+      <div class="grid-2" style="align-items: start;">
+        <div>
+          <div class="section-label">
+            <div class="dot dot-pink"></div>
+            <h2>Trailer</h2>
+          </div>
+          <div class="trailer-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/NaXSfzBLZJM"
+              title="Sugar Shatter Demo Launch Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">
+            <div class="dot dot-yellow"></div>
+            <h2>Fact Sheet</h2>
+          </div>
+          <div class="card">
+            <div class="fact-sheet">
+              <div class="fact-row"><div class="fact-label">Developer</div><div class="fact-value">SpicyTrain Games</div></div>
+              <div class="fact-row"><div class="fact-label">Based in</div><div class="fact-value">Vancouver, BC, Canada</div></div>
+              <div class="fact-row"><div class="fact-label">Genre</div><div class="fact-value">Arcade / Fighting / Breakout</div></div>
+              <div class="fact-row"><div class="fact-label">Platform</div><div class="fact-value">PC (Windows - Steam)</div></div>
+              <div class="fact-row"><div class="fact-label">Release</div><div class="fact-value">Coming Soon — Demo available now</div></div>
+              <div class="fact-row"><div class="fact-label">Modes</div><div class="fact-value">Singleplayer Campaign, Local Multiplayer PvP</div></div>
+              <div class="fact-row"><div class="fact-label">Players</div><div class="fact-value">1 – 2 (local)</div></div>
+              <div class="fact-row"><div class="fact-label">Steam Page</div><div class="fact-value"><a href="https://store.steampowered.com/app/4275860/Sugar_Shatter/" target="_blank" rel="noopener">store.steampowered.com</a></div></div>
+              <div class="fact-row"><div class="fact-label">Steam Page (Demo)</div><div class="fact-value"><a href="https://store.steampowered.com/app/4364720/Sugar_Shatter_Demo/" target="_blank" rel="noopener">store.steampowered.com</a></div></div>
+              <div class="fact-row"><div class="fact-label">Price</div><div class="fact-value">TBA</div></div>
+              <!-- <div class="fact-row"><div class="fact-label">Features</div><div class="fact-value">Steam Cloud · Remote Play Together · Family Sharing</div></div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+      <div class="section-label">
+        <div class="dot dot-mint"></div>
+        <h2>About the Game</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 16px;">
+            <strong style="color: var(--text);">Sugar Shatter</strong> is a breakout fighting game where you have to hit a candy ball to break more bricks than your opponent. See if you can master the abilities of each character while navigating the hazards that may show up on the field. Play through a series of tournaments in campaign mode, or challenge your friends to a match in local multiplayer!
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 16px;">
+            Explore the stories of the various characters of Candyland as you unlock buffs and upgrades on the path to becoming a Sugar Shatter Legend! Help each character overcome their personal struggles, and uncover their motivations and relationships along the way!
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.75;">
+            The free demo includes all 6 base characters, all 5 levels, a demo-exclusive story campaign (~2 hours of content), and various different game modes.
+          </p>
+        </div>
+        <div>
+          <div class="features">
+            <div class="feature-item">
+              <div class="feature-icon">◆</div>
+              <div class="feature-text">
+                <strong>Singleplayer Campaign Mode</strong>
+                <p>Learn the story behind each character as you progress through various seasons of Sugar Shatter, culminating in a world cup where all characters come together to duke it out!</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">◆</div>
+              <div class="feature-text">
+                <strong>Local multiplayer</strong>
+                <p>In versus mode, go toe to toe with your friends to see who is better at Sugar Shatter!</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">◆</div>
+              <div class="feature-text">
+                <strong>Sweets-themed characters</strong>
+                <p>Try out all the various candy and sweets themed characters to see whose abilities fits your playstyle more!</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">◆</div>
+              <div class="feature-text">
+                <strong>Arenas</strong>
+                <p>Different areas across Candyland affect the playing field in different ways, forcing you to adapt to different hazards that may trip up your gameplay!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+      <div class="section-label">
+        <div class="dot dot-yellow"></div>
+        <h2>Download Press Kit</h2>
+      </div>
+      <a href="https://drive.google.com/file/d/1k3VE22LtWXHJQoB0J2pcEsdK2OOr-wlj/view?usp=sharing" target="_blank" rel="noopener" class="download-btn">
+        <span class="social-icon"><i class="fa-brands fa-google-drive"></i></span> Download Press Kit (.zip)
+      </a>
+      <p class="download-note">Includes screenshots, logos, and key art</p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+      <div class="section-label">
+        <div class="dot dot-blue"></div>
+        <h2>Screenshots & Media</h2>
+      </div>
+      <div class="screenshots-grid">
+        <div class="screenshot-slot"><img src="images/screenshots/screenshot1_v2.png" alt="Sugar Shatter gameplay screenshot 1"></div>
+        <div class="screenshot-slot"><img src="images/screenshots/screenshot2_v2.png" alt="Sugar Shatter gameplay screenshot 2"></div>
+        <div class="screenshot-slot"><img src="images/screenshots/screenshot3_v2.png" alt="Sugar Shatter gameplay screenshot 3"></div>
+        <div class="screenshot-slot"><img src="images/screenshots/screenshot4_v2.png" alt="Sugar Shatter gameplay screenshot 4"></div>
+        <div class="screenshot-slot"><img src="images/screenshots/screenshot5_v2.png" alt="Sugar Shatter gameplay screenshot 5"></div>
+        <div class="screenshot-slot"><img src="images/screenshots/screenshot_char_select.png" alt="Sugar Shatter character select screenshot"></div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+      <div class="section-label">
+        <div class="dot dot-purple"></div>
+        <h2>About the Developer</h2>
+      </div>
+      <div class="card">
+        <div class="dev-card">
+          <div class="dev-avatar">I</div>
+          <div class="dev-info">
+            <h3>Ian Wang</h3>
+            <div class="dev-role">Founder · Solo Developer</div>
+            <p>Ian Wang is the founder of SpicyTrain Games, an indie game studio based in Vancouver, BC, established in 2025.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+      <div class="section-label">
+        <div class="dot dot-mint"></div>
+        <h2>Links</h2>
+      </div>
+      <div class="links-grid">
+        <a href="https://store.steampowered.com/app/4275860/Sugar_Shatter/" target="_blank" rel="noopener" class="press-link">
+          <span class="link-icon"><span class="social-icon"><i class="fa-brands fa-steam"></i></span></span><div>Steam Page<span class="link-sub">Wishlist & Demo</span></div>
+        </a>
+        <a href="https://www.youtube.com/@SpicyTrainGames" target="_blank" rel="noopener" class="press-link">
+          <span class="link-icon"><span class="social-icon"><i class="fa-brands fa-youtube"></i></span></span><div>YouTube<span class="link-sub">Trailers & dev content</span></div>
+        </a>
+        <a href="https://bsky.app/profile/spicytrain.bsky.social" target="_blank" rel="noopener" class="press-link">
+          <span class="link-icon"><span class="social-icon"><i class="fa-brands fa-twitter"></i></span></span><div>Bluesky<span class="link-sub">@spicytrain.bsky.social</span></div>
+        </a>
+        <a href="https://www.instagram.com/spicytraingames/" target="_blank" rel="noopener" class="press-link">
+          <span class="link-icon"><span class="social-icon"><i class="fa-brands fa-instagram"></i></span></span><div>Instagram<span class="link-sub">@spicytraingames</span></div>
+        </a>
+        <a href="https://www.tiktok.com/@spicytraingames" target="_blank" rel="noopener" class="press-link">
+          <span class="link-icon"><span class="social-icon"><i class="fa-brands fa-tiktok"></i></span></span><div>TikTok<span class="link-sub">@spicytraingames</span></div>
+        </a>
+        <a href="https://spicytrain-games.itch.io/sugar-shatter-demo" target="_blank" rel="noopener" class="press-link">
+          <span class="link-icon"><span class="social-icon"><i class="fa-brands fa-chrome"></i></span></span><div>itch.io Demo<span class="link-sub">Play for free</span></div>
+        </a>
+      </div>
+    </section>
+
+    <div class="contact-block">
+      <h2>📬 Press Enquiries</h2>
+      <p>Requests for review keys, interviews, or additional assets? Reach out directly.</p>
+      <!-- Replace with your actual press contact email -->
+      <a href="mailto:press@spicytraingames.com" class="contact-email">spicytraingames@gmail.com</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© SpicyTrain Games Inc. All rights reserved. &nbsp;·&nbsp; <a href="index.html">spicytraingames.com</a></p>
+  </footer>
+
+  <script>
+    const bg = document.getElementById('candyBg');
+    const colors = ['#FF4E8A', '#FFD93D', '#6FEFCB', '#4BC8F5', '#C084FC'];
+    for (let i = 0; i < 18; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'particle';
+      const size = Math.random() * 18 + 6;
+      dot.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        left: ${Math.random() * 100}%;
+        animation-duration: ${Math.random() * 20 + 14}s;
+        animation-delay: -${Math.random() * 20}s;
+        border-radius: ${Math.random() > 0.5 ? '50%' : '3px'};
+      `;
+      bg.appendChild(dot);
+    }
+  </script>
+
+</body>
+</html>
