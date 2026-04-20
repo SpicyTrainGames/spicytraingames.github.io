@@ -168,8 +168,6 @@
 </head>
 <body>
 
-  <div class="particle-bg" id="particleBg"></div>
-
   <nav>
     <a href="#" class="nav-logo"><img src="logo.png" alt="SpicyTrain Games logo" height="36" style="vertical-align: middle;"></a>
     <ul class="nav-links">
@@ -256,27 +254,6 @@
   <footer>
     <p>Copyright &copy; SpicyTrain Games Inc. All rights reserved. &nbsp;·&nbsp; <a href="presskit.html">Press Kit</a></p>
   </footer>
-
-  <script>
-    const bg = document.getElementById('particleBg');
-    const colors = ['#FF4E8A','#FFD93D','#6FEFCB','#4BC8F5','#C084FC'];
-    const shapes = ['50%', '3px', '50%', '50%', '6px'];
-    for (let i = 0; i < 20; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      const size = Math.random() * 16 + 5;
-      const shapeI = Math.floor(Math.random() * shapes.length);
-      p.style.cssText = `
-        width:${size}px; height:${size}px;
-        background:${colors[Math.floor(Math.random()*colors.length)]};
-        left:${Math.random()*100}%;
-        border-radius:${shapes[shapeI]};
-        animation-duration:${Math.random()*18+12}s;
-        animation-delay:-${Math.random()*20}s;
-      `;
-      bg.appendChild(p);
-    }
-  </script>
 
 </body>
 </html>

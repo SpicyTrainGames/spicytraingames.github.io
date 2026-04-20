@@ -45,28 +45,6 @@ body::before {
   z-index: 0;
 }
 
-/* ── FLOATING PARTICLES ── */
-.particle-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.particle {
-  position: absolute;
-  opacity: 0.13;
-  animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-  0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
-  9%   { opacity: 0.13; }
-  91%  { opacity: 0.13; }
-  100% { transform: translateY(-10vh) rotate(400deg); opacity: 0; }
-}
-
 /* ── NAV ── */
 nav {
   position: sticky;
