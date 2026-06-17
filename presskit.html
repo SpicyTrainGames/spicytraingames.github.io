@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sugar Shatter — Press Kit | SpicyTrain Games</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jersey+25&family=Londrina+Shadow&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <link rel="stylesheet" href="shared.css">
   <link rel="icon" href="logo.ico" type="image/x-icon">
@@ -45,22 +47,6 @@
     }
     .header-back:hover { color: var(--candy-mint); }
 
-    /* Hero */
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,78,138,0.15);
-      border: 1px solid rgba(255,78,138,0.4);
-      color: var(--candy-pink);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-      animation: fadeInDown 0.6s ease both;
-    }
-
     .hero h1 {
       font-size: clamp(3rem, 8vw, 6rem);
       animation: fadeInDown 0.6s ease 0.1s both;
@@ -71,6 +57,21 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    .hero-logo {
+      max-width: 100%;
+      height: auto;
+      max-height: 280px;
+      display: block;
+      margin: 20px auto;
+      animation: fadeInDown 0.6s ease 0.1s both;
+    }
+
+    @media (max-width: 600px) {
+      .hero-logo {
+        max-height: 200px;
+      }
     }
 
     .hero-sub {
@@ -296,15 +297,17 @@
   </header>
 
   <div class="hero">
-    <h1><span>Sugar Shatter</span></h1>
-    <p class="hero-sub">A breakout fighting game — coming soon to PC</p>
+    <!-- <h1><span>Sugar Shatter</span></h1> -->
+     <div class="hero">
+    <img src="sugar_shatter_logo.png" alt="Sugar Shatter" class="hero-logo">
+    <p class="hero-sub">A breakout fighting game — out now on PC</p>
     <div class="hero-tags">
       <span class="tag">2D Fighter</span>
       <span class="tag">Arcade</span>
       <span class="tag">Breakout</span>
       <span class="tag">PvP</span>
       <span class="tag">Singleplayer</span>
-      <span class="tag">Local Multiplayer</span>
+      <span class="tag">Multiplayer</span>
     </div>
   </div>
 
@@ -314,7 +317,6 @@
       <div class="grid-2" style="align-items: start;">
         <div>
           <div class="section-label">
-            <div class="dot dot-pink"></div>
             <h2>Trailer</h2>
           </div>
           <div class="trailer-wrap">
@@ -328,7 +330,6 @@
         </div>
         <div>
           <div class="section-label">
-            <div class="dot dot-yellow"></div>
             <h2>Fact Sheet</h2>
           </div>
           <div class="card">
@@ -337,12 +338,12 @@
               <div class="fact-row"><div class="fact-label">Based in</div><div class="fact-value">Vancouver, BC, Canada</div></div>
               <div class="fact-row"><div class="fact-label">Genre</div><div class="fact-value">Arcade / Fighting / Breakout</div></div>
               <div class="fact-row"><div class="fact-label">Platform</div><div class="fact-value">PC (Windows - Steam)</div></div>
-              <div class="fact-row"><div class="fact-label">Release</div><div class="fact-value">Coming Soon — Demo available now</div></div>
-              <div class="fact-row"><div class="fact-label">Modes</div><div class="fact-value">Singleplayer Campaign, Local Multiplayer PvP</div></div>
-              <div class="fact-row"><div class="fact-label">Players</div><div class="fact-value">1 – 2 (local)</div></div>
+              <div class="fact-row"><div class="fact-label">Release</div><div class="fact-value">June 10th, 2026</div></div>
+              <div class="fact-row"><div class="fact-label">Modes</div><div class="fact-value">Singleplayer Campaign, Online & Local Multiplayer PvP</div></div>
+              <div class="fact-row"><div class="fact-label">Players</div><div class="fact-value">1 – 2</div></div>
               <div class="fact-row"><div class="fact-label">Steam Page</div><div class="fact-value"><a href="https://store.steampowered.com/app/4275860/Sugar_Shatter/" target="_blank" rel="noopener">store.steampowered.com</a></div></div>
               <div class="fact-row"><div class="fact-label">Steam Page (Demo)</div><div class="fact-value"><a href="https://store.steampowered.com/app/4364720/Sugar_Shatter_Demo/" target="_blank" rel="noopener">store.steampowered.com</a></div></div>
-              <div class="fact-row"><div class="fact-label">Price</div><div class="fact-value">TBA</div></div>
+              <div class="fact-row"><div class="fact-label">Price</div><div class="fact-value">$12.99 USD</div></div>
               <!-- <div class="fact-row"><div class="fact-label">Features</div><div class="fact-value">Steam Cloud · Remote Play Together · Family Sharing</div></div> -->
             </div>
           </div>
@@ -354,7 +355,6 @@
 
     <section>
       <div class="section-label">
-        <div class="dot dot-mint"></div>
         <h2>About the Game</h2>
       </div>
       <div class="grid-2">
@@ -408,7 +408,6 @@
 
     <section>
       <div class="section-label">
-        <div class="dot dot-yellow"></div>
         <h2>Download Press Kit</h2>
       </div>
       <a href="https://drive.google.com/file/d/1k3VE22LtWXHJQoB0J2pcEsdK2OOr-wlj/view?usp=sharing" target="_blank" rel="noopener" class="download-btn">
@@ -421,7 +420,6 @@
 
     <section>
       <div class="section-label">
-        <div class="dot dot-blue"></div>
         <h2>Screenshots & Media</h2>
       </div>
       <div class="screenshots-grid">
@@ -438,7 +436,6 @@
 
     <section>
       <div class="section-label">
-        <div class="dot dot-purple"></div>
         <h2>About the Developer</h2>
       </div>
       <div class="card">
@@ -457,7 +454,6 @@
 
     <section>
       <div class="section-label">
-        <div class="dot dot-mint"></div>
         <h2>Links</h2>
       </div>
       <div class="links-grid">
@@ -483,7 +479,7 @@
     </section>
 
     <div class="contact-block">
-      <h2>📬 Press Enquiries</h2>
+      <h2>Press Enquiries</h2>
       <p>Requests for review keys, interviews, or additional assets? Reach out directly.</p>
       <a href="mailto:spicytraingames@gmail.com" class="contact-email">spicytraingames@gmail.com</a>
     </div>

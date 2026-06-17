@@ -118,20 +118,17 @@ nav {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 90px 40px 70px;
+  padding: 30px 40px 70px;
 }
 
 .hero h1 {
-  font-family: 'Lilita One', cursive;
+  font-family: "Londrina Shadow", sans-serif;
+  font-weight: 800;
   font-size: clamp(3rem, 8vw, 6.5rem);
-  line-height: 1;
-  letter-spacing: -0.01em;
+  line-height: 1.1;
+  animation: fadeInDown 0.6s ease 0.1s both;
+  /* letter-spacing: -0.01em; */
 }
-
-/* ── SECTION HEADINGS ── */
-/* index.html uses .section-header + .section-pip  */
-/* presskit.html uses .section-label + .dot        */
-/* Both are unified here under shared class names  */
 
 .section-header,
 .section-label {
@@ -146,21 +143,6 @@ nav {
   font-size: 1.55rem;
   letter-spacing: 0.01em;
 }
-
-/* Coloured pip dots — used by both pages */
-.section-pip,
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.pip-pink,   .dot-pink   { background: var(--candy-pink);   box-shadow: 0 0 8px var(--candy-pink); }
-.pip-yellow, .dot-yellow { background: var(--candy-yellow); box-shadow: 0 0 8px var(--candy-yellow); }
-.pip-mint,   .dot-mint   { background: var(--candy-mint);   box-shadow: 0 0 8px var(--candy-mint); }
-.pip-blue,   .dot-blue   { background: var(--candy-blue);   box-shadow: 0 0 8px var(--candy-blue); }
-.pip-purple, .dot-purple { background: var(--candy-purple); box-shadow: 0 0 8px var(--candy-purple); }
 
 /* ── CARDS ── */
 .card {
