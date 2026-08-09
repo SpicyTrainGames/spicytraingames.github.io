@@ -13,6 +13,7 @@
   --dark:         #1A0A2E;
   --dark-card:    #251540;
   --dark-card2:   #1E1035;
+  --dark-blue:    #111854;
   --text:         #F0E6FF;
   --text-muted:   #A89FC0;
 }
@@ -24,7 +25,7 @@ html { scroll-behavior: smooth; }
 
 /* ── BASE ── */
 body {
-  background-color: var(--dark);
+  background-color: var(--dark-blue);
   color: var(--text);
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
@@ -84,7 +85,7 @@ nav {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 6px 14px;
-  border-radius: 100px;
+  border-radius: 70px;
   transition: color 0.2s, background 0.2s;
 }
 
@@ -98,7 +99,7 @@ nav {
   border: 1px solid rgba(255,78,138,0.3);
   color: var(--candy-pink);
   padding: 7px 18px;
-  border-radius: 100px;
+  border-radius: 70px;
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;

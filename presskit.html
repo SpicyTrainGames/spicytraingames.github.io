@@ -28,25 +28,6 @@
       backdrop-filter: blur(12px);
     }
 
-    .header-logo {
-      font-family: 'Lilita One', cursive;
-      font-size: 1.1rem;
-      color: var(--candy-yellow);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-
-    .header-back {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
-    }
-    .header-back:hover { color: var(--candy-mint); }
-
     .hero h1 {
       font-size: clamp(3rem, 8vw, 6rem);
       animation: fadeInDown 0.6s ease 0.1s both;
@@ -291,10 +272,12 @@
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="header-logo"><img src="logo.png" alt="SpicyTrain Games logo" height="36" style="vertical-align: middle;"></a>
-    <a href="index.html" class="header-back">← Back to site</a>
-  </header>
+  <nav>
+    <a href="#" class="nav-logo"><img src="logo.png" alt="SpicyTrain Games logo" height="36" style="vertical-align: middle;"></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-press">Back</a></li>
+    </ul>
+  </nav>
 
   <div class="hero">
     <!-- <h1><span>Sugar Shatter</span></h1> -->
